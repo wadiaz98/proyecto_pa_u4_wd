@@ -1,13 +1,26 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class ProyectoPaU4WdApplication {
+import com.example.demo.service.IEstudianteService;
 
+@SpringBootApplication
+public class ProyectoPaU4WdApplication implements CommandLineRunner {
+
+	@Autowired
+	private IEstudianteService estudianteService;
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU4WdApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		this.estudianteService.procesarEstudianteParalelo();
 	}
 
 }
